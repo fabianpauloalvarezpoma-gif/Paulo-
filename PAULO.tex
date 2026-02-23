@@ -1,0 +1,463 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage{hyperref}
+
+\geometry{margin=2.5cm}
+
+\definecolor{codegray}{rgb}{0.95,0.95,0.95}
+
+\lstset{
+    backgroundcolor=\color{codegray},
+    basicstyle=\ttfamily\small,
+    frame=single,
+    breaklines=true
+}
+
+\title{Manual De Comandos}
+\author{Estudiante: Alvarez Poma Fabian Paulo}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+%------------------------------------------------
+\section{Comandos Básicos (Navegación y Archivos)}
+
+\subsection{Gestión de Directorios}
+
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Comando} & \textbf{Descripción} \\
+\hline
+ls & Lista el contenido de un directorio. \\
+cd & Cambia de directorio. \\
+mkdir & Crea un nuevo directorio. \\
+pwd & Muestra la ruta actual. \\
+\hline
+\end{longtable}
+
+\subsubsection*{Ejemplos}
+
+\textbf{ls}
+\begin{lstlisting}
+ls
+ls -l
+ls -a
+\end{lstlisting}
+
+\textbf{cd}
+\begin{lstlisting}
+cd /home
+cd ..
+cd Documentos
+\end{lstlisting}
+
+\textbf{mkdir}
+\begin{lstlisting}
+mkdir proyectos
+mkdir -p cursos/linux
+\end{lstlisting}
+
+\textbf{pwd}
+\begin{lstlisting}
+pwd
+\end{lstlisting}
+
+%------------------------------------------------
+\subsection{Manipulación de Archivos}
+
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Comando} & \textbf{Descripción} \\
+\hline
+cp & Copia archivos o directorios. \\
+mv & Mueve o renombra archivos. \\
+rm & Elimina archivos o directorios. \\
+touch & Crea un archivo vacío. \\
+cat & Muestra el contenido de un archivo. \\
+\hline
+\end{longtable}
+
+\subsubsection*{Ejemplos}
+
+\textbf{cp}
+\begin{lstlisting}
+cp archivo.txt copia.txt
+cp -r carpeta respaldo/
+\end{lstlisting}
+
+\textbf{mv}
+\begin{lstlisting}
+mv archivo.txt nuevo.txt
+mv archivo.txt /tmp/
+\end{lstlisting}
+
+\textbf{rm}
+\begin{lstlisting}
+rm archivo.txt
+rm -r carpeta
+\end{lstlisting}
+
+\textbf{touch}
+\begin{lstlisting}
+touch nuevo.txt
+\end{lstlisting}
+
+\textbf{cat}
+\begin{lstlisting}
+cat archivo.txt
+cat archivo1.txt archivo2.txt
+\end{lstlisting}
+
+%------------------------------------------------
+\subsection{Ayuda y Manuales}
+
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Comando} & \textbf{Descripción} \\
+\hline
+man & Muestra el manual de un comando. \\
+help & Ayuda interna del shell. \\
+\hline
+\end{longtable}
+
+\begin{lstlisting}
+man ls
+help cd
+\end{lstlisting}
+
+%------------------------------------------------
+\section{Comandos Avanzados (Sistema y Filtros)}
+
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\hline
+\textbf{Comando} & \textbf{Descripción} \\
+\hline
+chmod & Cambia permisos de archivos o directorios. \\
+chown & Cambia el propietario o grupo de un archivo. \\
+grep & Busca patrones de texto dentro de archivos. \\
+find & Busca archivos o directorios en el sistema. \\
+head & Muestra las primeras líneas de un archivo. \\
+tail & Muestra las últimas líneas de un archivo. \\
+sort & Ordena líneas de texto. \\
+wc & Cuenta líneas, palabras y caracteres. \\
+top & Muestra procesos en tiempo real. \\
+ps & Lista procesos activos. \\
+kill & Finaliza procesos por ID. \\
+\hline
+\end{longtable}
+
+
+\subsection{Ejemplos}
+
+\textbf{chmod}
+\begin{lstlisting}
+chmod 755 script.sh
+chmod +x programa.sh
+chmod 644 archivo.txt
+\end{lstlisting}
+
+\textbf{chown}
+\begin{lstlisting}
+chown usuario archivo.txt
+chown usuario:grupo archivo.txt
+sudo chown -R usuario carpeta/
+\end{lstlisting}
+
+\textbf{grep}
+\begin{lstlisting}
+grep "error" log.txt
+grep -i "linux" archivo.txt
+grep -r "config" /etc/
+\end{lstlisting}
+
+\textbf{find}
+\begin{lstlisting}
+find /home -name "*.txt"
+find . -type d
+find / -size +100M
+\end{lstlisting}
+
+\textbf{head}
+\begin{lstlisting}
+head archivo.txt
+head -n 5 archivo.txt
+head -c 20 archivo.txt
+\end{lstlisting}
+
+\textbf{tail}
+\begin{lstlisting}
+tail archivo.txt
+tail -n 10 archivo.txt
+tail -f log.txt
+\end{lstlisting}
+
+\textbf{sort}
+\begin{lstlisting}
+sort nombres.txt
+sort -r numeros.txt
+sort -n numeros.txt
+\end{lstlisting}
+
+\textbf{wc}
+\begin{lstlisting}
+wc archivo.txt
+wc -l archivo.txt
+wc -w archivo.txt
+\end{lstlisting}
+
+\textbf{top}
+\begin{lstlisting}
+top
+top -u usuario
+top -n 1
+\end{lstlisting}
+
+\textbf{ps}
+\begin{lstlisting}
+ps
+ps aux
+ps -ef
+\end{lstlisting}
+
+\textbf{kill}
+\begin{lstlisting}
+kill 1234
+kill -9 1234
+killall firefox
+\end{lstlisting}
+
+
+%------------------------------------------------
+\section{Programación Shell (Bash Scripting)}
+
+\subsection{Estructura Básica}
+
+\begin{lstlisting}
+#!/bin/bash
+echo "Hola Mundo"
+\end{lstlisting}
+
+\subsection{Variables y Argumentos}
+
+\begin{lstlisting}
+#!/bin/bash
+nombre=$1
+echo "Hola $nombre"
+\end{lstlisting}
+
+\subsection{Estructuras de Control}
+
+\textbf{If-Else}
+\begin{lstlisting}
+if [ -f archivo.txt ]; then
+  echo "Existe"
+else
+  echo "No existe"
+fi
+\end{lstlisting}
+
+\textbf{For}
+\begin{lstlisting}
+for archivo in *.txt; do
+  echo $archivo
+done
+\end{lstlisting}
+
+\textbf{While}
+
+\begin{lstlisting}
+contador=1
+while [ $contador -le 5 ]; do
+  echo $contador
+  contador=$((contador+1))
+done
+\end{lstlisting}
+
+
+\subsection{Script Funcional: Backup Automatizado}
+
+\begin{lstlisting}
+#!/bin/bash
+
+# Variables
+origen="/home/usuario/documentos"
+destino="/home/usuario/respaldo"
+fecha=$(date +%Y-%m-%d)
+
+# Crear carpeta destino con fecha
+mkdir -p "$destino/$fecha"
+
+# Copiar archivos
+cp -r "$origen/"* "$destino/$fecha/"
+
+# Verificar si el backup fue exitoso
+if [ $? -eq 0 ]; then
+  echo "Backup completado correctamente en $destino/$fecha"
+else
+  echo "Error al realizar el backup"
+fi
+\end{lstlisting}
+
+
+
+%------------------------------------------------
+\section{Guía de Diagnóstico (Errores Comunes)}
+
+En Linux, los errores son mensajes generados por el sistema cuando una operación no puede ejecutarse correctamente. A continuación se presentan errores comunes, cómo identificarlos y cómo solucionarlos.
+
+\subsection*{1. Permission denied}
+
+\textbf{Mensaje típico:}
+\begin{lstlisting}
+bash: ./script.sh: Permission denied
+\end{lstlisting}
+
+\textbf{Causa:}
+El usuario no tiene permisos de ejecución o acceso al archivo.
+
+\textbf{Solución:}
+\begin{lstlisting}
+chmod +x script.sh
+sudo ./script.sh
+\end{lstlisting}
+
+\textbf{Explicación:}
+Linux controla el acceso mediante permisos (lectura, escritura y ejecución). Si no se tiene permiso, el sistema bloquea la acción.
+
+%------------------------------------------------
+
+\subsection*{2. Command not found}
+
+\textbf{Mensaje típico:}
+\begin{lstlisting}
+comando_incorrecto: command not found
+\end{lstlisting}
+
+\textbf{Causa:}
+El comando está mal escrito o no está instalado.
+
+\textbf{Solución:}
+\begin{lstlisting}
+which nombre_comando
+sudo apt install nombre_paquete
+\end{lstlisting}
+
+\textbf{Explicación:}
+El sistema busca el comando en las rutas definidas en la variable \$PATH.
+
+%------------------------------------------------
+
+\subsection*{3. No such file or directory}
+
+\textbf{Mensaje típico:}
+\begin{lstlisting}
+ls: cannot access 'archivo.txt': No such file or directory
+\end{lstlisting}
+
+\textbf{Causa:}
+La ruta es incorrecta o el archivo no existe.
+
+\textbf{Solución:}
+\begin{lstlisting}
+ls
+pwd
+ls /ruta/completa/archivo.txt
+\end{lstlisting}
+
+\textbf{Explicación:}
+Linux distingue entre rutas relativas y absolutas. Si la ubicación es incorrecta, el sistema no encuentra el archivo.
+
+%------------------------------------------------
+
+\subsection*{4. Directory not empty}
+
+\textbf{Mensaje típico:}
+\begin{lstlisting}
+rmdir: failed to remove 'carpeta': Directory not empty
+\end{lstlisting}
+
+\textbf{Causa:}
+Se intenta eliminar un directorio que contiene archivos.
+
+\textbf{Solución:}
+\begin{lstlisting}
+rm -r carpeta
+\end{lstlisting}
+
+\textbf{Explicación:}
+El comando rmdir solo elimina directorios vacíos.
+
+%------------------------------------------------
+
+\subsection*{5. Syntax error}
+
+\textbf{Mensaje típico:}
+\begin{lstlisting}
+./script.sh: line 5: syntax error near unexpected token
+\end{lstlisting}
+
+\textbf{Causa:}
+Error en la estructura del script (espacios incorrectos, falta de fi, done, etc.).
+
+\textbf{Solución:}
+\begin{lstlisting}
+bash -n script.sh
+\end{lstlisting}
+
+\textbf{Explicación:}
+El comando bash -n permite verificar errores de sintaxis sin ejecutar el script.
+
+%------------------------------------------------
+\section{Tuberías y Redireccionamientos}
+
+\subsection{Conceptos}
+
+\begin{itemize}
+\item stdin: Entrada estándar.
+\item stdout: Salida estándar.
+\item stderr: Salida de errores.
+\end{itemize}
+
+\subsection{Operadores}
+
+\begin{itemize}
+\item | : Envía la salida de un comando como entrada de otro (pipe).
+\item > : Redirige la salida estándar y sobrescribe el archivo.
+\item >> : Redirige la salida estándar y añade al final del archivo.
+\item 2> : Redirige la salida de errores (stderr) a un archivo.
+\end{itemize}
+
+
+\subsection{Ejemplos Obligatorios}
+
+\textbf{1. Filtro combinado}
+\begin{lstlisting}
+ls | grep archivo.txt
+\end{lstlisting}
+
+\textbf{2. Conteo y ordenamiento}
+\begin{lstlisting}
+cat texto.txt | sort | uniq | wc -l
+\end{lstlisting}
+
+\textbf{3. Registro de errores}
+\begin{lstlisting}
+ls /directorio_inexistente 2> errores.log
+\end{lstlisting}
+
+%------------------------------------------------
+\section*{Declaración de uso de inteligencia artificial}
+
+El presente trabajo fue desarrollado con el apoyo de la herramienta de inteligencia artificial \textbf{ChatGPT}, la cual fue utilizada como recurso complementario para la orientación en la redacción y estructuración del contenido. El autor es responsable de la selección, verificación y adecuación final de la información presentada, garantizando su originalidad y validez.
+
+\end{document}
